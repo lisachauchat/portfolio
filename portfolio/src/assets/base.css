@@ -84,3 +84,132 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* 🎨 VARIABLES GLOBALES */
+:root {
+  /* 🌈 Palette de couleurs */
+  --color-primary: #4a9eff;
+  /* Bleu principal */
+  --color-secondary: #1e1e1e;
+  /* Fond sombre */
+  --color-light: #f5f5f5;
+  /* Blanc cassé */
+  --color-dark: #111;
+  /* Noir profond */
+  --color-accent: #ff7f50;
+  /* Orange accent */
+  --color-muted: #aaaaaa;
+  /* Gris clair */
+
+  /* 🖋 Typographie */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+
+  /* 🔠 Tailles des textes */
+  --text-small: 0.9rem;
+  --text-base: 1rem;
+  --text-medium: 1.2rem;
+  --text-large: 1.5rem;
+  --text-xl: 2rem;
+  --text-xxl: 2.5rem;
+
+  /* 📏 Espacements */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+}
+
+/* 🖋 Réinitialisation et typographie */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+body {
+  background: var(--color-secondary);
+  color: var(--color-light);
+  line-height: 1.6;
+}
+
+/* 🔠 Titres */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: var(--text-xxl);
+  color: var(--color-primary);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-large);
+}
+
+h4 {
+  font-size: var(--text-medium);
+}
+
+/* 📌 Paragraphes et Textes */
+p {
+  font-size: var(--text-base);
+  color: var(--color-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* 🌍 Boutons */
+.btn {
+  background: var(--color-primary);
+  color: var(--color-light);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: var(--color-accent);
+}
+
+/* 📌 Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--text-xl);
+  }
+
+  h2 {
+    font-size: var(--text-large);
+  }
+
+  h3 {
+    font-size: var(--text-medium);
+  }
+
+  p {
+    font-size: var(--text-small);
+  }
+}
