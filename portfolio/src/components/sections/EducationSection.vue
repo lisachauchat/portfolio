@@ -1,9 +1,7 @@
 <template>
   <section id="education" class="section">
-    <h2 class="section-title">🎓 Formations</h2>
-
     <div class="education-list">
-      <div v-for="item in education" :key="item.id" class="education-card">
+      <div v-for="item in education" :key="item.id" class="card">
         <h3 class="education-title">{{ item.title }}</h3>
         <h4 class="education-institution">{{ item.institution }}</h4>
         <p class="education-location">{{ item.location }}</p>
@@ -101,24 +99,10 @@ export default {
   margin: auto;
 }
 
-.section-title {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
-
 .education-list {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-}
-
-.education-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .education-title {
@@ -244,4 +228,26 @@ export default {
       font-size: 1rem;
     }
   }
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .education-title {
+    font-size: var(--text-md);
+  }
+
+  .education-description {
+    font-size: var(--text-sm);
+  }
+
+  .specialty-details h6 {
+    font-size: var(--text-sm);
+  }
+
+  .specialty-details li {
+    font-size: var(--text-xs);
+  }
+
+  .toggle-btn {
+    font-size: 1rem;
+  }
+}
 </style>

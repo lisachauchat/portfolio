@@ -7,7 +7,7 @@
       <div class="content">
         <h2>{{ about.name }}</h2>
         <h3>{{ about.title }}</h3>
-        <div class="description">
+        <div class="description card">
           <p v-for="(paragraph, index) in about.description" 
           :key="index" 
           class="fade-in">
@@ -66,20 +66,5 @@ h3 {
 .description p {
   margin-bottom: var(--spacing-sm);
 }
-/* .fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp 0.8s ease-in-out forwards;
-}
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
 </style>
