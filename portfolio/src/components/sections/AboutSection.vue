@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { about } from "@/store/about.js";
+import { about } from "../../store/about.js";
 
 export default {
   name: "AboutSection",

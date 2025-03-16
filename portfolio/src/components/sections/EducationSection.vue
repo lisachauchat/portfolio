@@ -71,7 +71,7 @@
 
 <script>
 import { ref } from "vue";
-import { education } from "@/store/education.js";
+import { education } from "../../store/education.js";
 
 export default {
   name: "EducationSection",

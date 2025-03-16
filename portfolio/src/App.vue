@@ -8,6 +8,17 @@ import HomeView from './views/HomeView.vue'
     <main>
       <HomeView />
     </main>
+    <!-- <main class="main-content">
+      <router-view v-slot="{ Component }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main> -->
+    <!-- <main>
+      <router-view />
+    </main> -->
+
   </div>
 </template>
 

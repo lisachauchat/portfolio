@@ -65,7 +65,7 @@
   
 <script>
   import { ref } from "vue";
-  import { skills } from "@/store/skills.js";
+  import { skills } from "../../store/skills.js";
   
   export default {
     name: "SkillsSection",
