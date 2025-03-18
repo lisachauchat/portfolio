@@ -5,8 +5,8 @@ import { useRoute } from 'vue-router';
 import { projects } from "@/store/projects.js";
 
 // Récupérer l'ID du projet depuis l'URL
-// const route = useRoute();
-// const project = computed(() => projects.find(p => p.id === route.params.id));
+const route = useRoute();
+const project = computed(() => projects.find(p => p.id === parseInt(route.params.id)));
 </script>
 
 <template>

@@ -5,9 +5,9 @@ import HomeView from './views/HomeView.vue'
 <template>
   <div class="app-container">
     <!-- <NavBar /> -->
-    <main>
+    <!-- <main>
       <HomeView />
-    </main>
+    </main> -->
     <!-- <main class="main-content">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
@@ -15,9 +15,9 @@ import HomeView from './views/HomeView.vue'
         </transition>
       </router-view>
     </main> -->
-    <!-- <main>
+    <main>
       <router-view />
-    </main> -->
+    </main>
 
   </div>
 </template>

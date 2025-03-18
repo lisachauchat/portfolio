@@ -2,7 +2,7 @@ export const projects = [
     // projets SAE du BUT
     // TODO ajouter les 2 SAE de première année
     {
-        id: 3,
+        id: 1,
         title: "SAE 2ème année Muscu Maths",
         context: [
             "Muscu Maths est un support pédagogique numérique conçu pour améliorer les réflexes mathématiques des étudiants grâce à des exercices interactifs et un suivi personnalisé de leur progression.",
@@ -58,7 +58,7 @@ export const projects = [
         ]
     },
     { // projet personnel
-        id: 4,
+        id: 2,
         title: "Printer Manager",
         context: [
             "Printer Manager est une application qui simplifie la gestion des impressions 3D en centralisant le suivi des commandes et des ressources pour une administration fluide et efficace.",

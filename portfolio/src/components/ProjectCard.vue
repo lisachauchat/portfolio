@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  id : Number,
   title: String,
   image: String,
   linkToVue: String,
@@ -13,7 +14,7 @@ defineProps({
     <h3 class="card-title">{{ title }}</h3>
     <div class="card-links">
       <!-- <a :href="linkToVue" target="_blank" class="btn-primary">En savoir +</a> -->
-      <router-link :to="'/project/' + project.id" class="btn-primary">En savoir +</router-link>
+      <router-link :to="'/project/' + id" class="btn-primary">En savoir +</router-link>
       <a :href="linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a>
     </div>
   </div>

@@ -1,29 +1,22 @@
+<script setup>
+import ProjectCard from '../ProjectCard.vue';
+import { projects } from '@/store/projects.js';
+</script>
+
 <template>
-    <section class="projects-section">
-        <div class="projects-grid">
-        <ProjectCard 
-            v-for="project in projects" 
+    <section class="projects-section" >
+        <div class="projects-grid" v-for="(project) in projects"
             :key="project.id"
+            :id="project.id"
             :title="project.title"
             :image="project.image"
             :linkToVue="project.linkToVue"
-            :linkToGIT="project.linkToGIT"
-        />
+            :linkToGIT="project.linkToGIT" >
+          
+              <ProjectCard v-bind="project"/>
         </div>
     </section>
 </template>
-
-<script setup>
-import ProjectCard from '../ProjectCard.vue';
-</script>
-<script >
-import { projects } from '../../store/projects.js';
-export default {
-  data() {
-    return { projects };
-  },
-};
-</script>
 
 <style scoped>
 .projects-section {
