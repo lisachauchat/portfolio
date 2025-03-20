@@ -27,8 +27,8 @@ export const education = [
                 ]
             },
             {
-                name: "📊 Mathématique",
-                fullName: "Mathématique",
+                name: "📊 Mathématiques",
+                fullName: "Mathématiques",
                 description: [
                     "Encouragement à la rigueur dans le travail.",
                     "Apprentissage approfondi de l'algèbre, de la géométrie et de l'analyse.",

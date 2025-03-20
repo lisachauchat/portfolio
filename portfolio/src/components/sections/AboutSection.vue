@@ -8,11 +8,11 @@
         <h2>{{ about.name }}</h2>
         <h3>{{ about.title }}</h3>
         <div class="description card">
+           <!-- utilise deep pour forcer le style sur les balises <strong> -->
           <p v-for="(paragraph, index) in about.description" 
           :key="index" 
-          class="fade-in">
-            <!-- <span v-html="formatText(paragraph)"></span> -->
-            <span v-html="paragraph"></span>
+          class="fade-in"
+          v-html="parseMarkdown(paragraph)">
           </p>
         </div>
       </div>
@@ -22,17 +22,26 @@
 
 <script>
 import { about } from "../../store/about.js";
+import { marked } from 'marked';
 
 export default {
   name: "AboutSection",
   data() {
-    return { about };
+    return { 
+      about,
+    };
   },
-  // methods: {
-  //   formatText(text) {
-  //     return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-  //   }
-  // }
+  methods: {
+    parseMarkdown(text) {
+      // Configure marked pour ne gérer que le gras
+      marked.setOptions({
+        gfm: true,
+        breaks: true
+      });
+      // Convertit les ** en balises <strong>
+      return marked(text);
+    }
+  }
 };
 </script>
 
@@ -67,4 +76,13 @@ h3 {
   margin-bottom: var(--spacing-sm);
 }
 
+.bold-text {
+  font-weight: 700;
+  color: red;
+}
+
+:deep(strong) {
+  font-weight: 700;
+  color: var(--color-primary);
+}
 </style>
