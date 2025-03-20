@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 import { projects } from "@/store/projects.js";
@@ -7,25 +7,115 @@ import { projects } from "@/store/projects.js";
 // Récupérer l'ID du projet depuis l'URL
 const route = useRoute();
 const project = computed(() => projects.find(p => p.id === parseInt(route.params.id)));
+
+const isObjectivesOpen = ref(false);
+
+const toggleObjectives = () => {
+  isObjectivesOpen.value = !isObjectivesOpen.value;
+};
+
+const isContextOpen = ref(false);
+const isTechOpen = ref(false);
+const isWorkDoneOpen = ref(false);
+
+const toggleSection = (section) => {
+  switch(section) {
+    case 'context': isContextOpen.value = !isContextOpen.value; break;
+    case 'tech': isTechOpen.value = !isTechOpen.value; break;
+    case 'objectives': isObjectivesOpen.value = !isObjectivesOpen.value; break;
+    case 'workDone': isWorkDoneOpen.value = !isWorkDoneOpen.value; break;
+  }
+};
 </script>
 
 <template>
   <div v-if="project" class="project-detail">
-    <img :src="project.image" alt="Illustration du projet" class="project-image">
+    <img v-if="project.illustration" :src="'/images/' + project.illustration" :alt="project.title" class="project-image">
     <h1 class="project-title">{{ project.title }}</h1>
-    <p class="project-description">{{ project.description }}</p>
 
-    <h3 class="project-subtitle">Technologies utilisées :</h3>
-    <ul class="tech-list">
-      <li v-for="tech in project.technologies" :key="tech">{{ tech }}</li>
-    </ul>
+    <!-- Context Section -->
+    <div class="section-wrapper">
+      <div class="section-header" @click="toggleSection('context')">
+        <h3>Contexte</h3>
+        <button class="toggle-btn">{{ isContextOpen ? "▲" : "▼" }}</button>
+      </div>
+      <transition name="expand">
+        <div v-if="isContextOpen" class="section-content">
+          <ul class="context-list">
+            <li v-for="(item, index) in project.context" :key="index">{{ item }}</li>
+          </ul>
+        </div>
+      </transition>
+    </div>
+
+    <!-- Technologies Section -->
+    <div v-if="project.technologies?.length" class="section-wrapper">
+      <div class="section-header" @click="toggleSection('tech')">
+        <h3>Technologies utilisées</h3>
+        <button class="toggle-btn">{{ isTechOpen ? "▲" : "▼" }}</button>
+      </div>
+      <transition name="expand">
+        <div v-if="isTechOpen" class="section-content">
+          <div class="tech-grid">
+            <div v-for="tech in project.technologies" :key="tech.techTitle" class="tech-item">
+              <h4 class="tech-title">{{ tech.techTitle }}</h4>
+              <p class="tech-description">{{ tech.techDescription }}</p>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+
+    <!-- Objectives Section -->
+    <div class="section-wrapper">
+      <div class="section-header" @click="toggleSection('objectives')">
+        <h3>Objectifs</h3>
+        <button class="toggle-btn">{{ isObjectivesOpen ? "▲" : "▼" }}</button>
+      </div>
+      <transition name="expand">
+        <div v-if="isObjectivesOpen" class="section-content">
+          <div v-if="project.objectives.technical">
+            <h4>Techniques</h4>
+            <ul class="objectives-list">
+              <li v-for="(obj, index) in project.objectives.technical" :key="index">🎯 {{ obj }}</li>
+            </ul>
+          </div>
+          <div v-if="project.objectives.personal">
+            <h4>Personnels</h4>
+            <ul class="objectives-list">
+              <li v-for="(obj, index) in project.objectives.personal" :key="index">🎯 {{ obj }}</li>
+            </ul>
+          </div>
+        </div>
+      </transition>
+    </div>
+
+    <!-- Work Done Section -->
+    <div class="section-wrapper">
+      <div class="section-header" @click="toggleSection('workDone')">
+        <h3>Réalisations</h3>
+        <button class="toggle-btn">{{ isWorkDoneOpen ? "▲" : "▼" }}</button>
+      </div>
+      <transition name="expand">
+        <div v-if="isWorkDoneOpen" class="section-content">
+          <div class="work-grid">
+            <div v-for="(work, index) in project.workDone" :key="index" class="work-item">
+              <h4>✓ {{ work.workTitle }}</h4>
+              <img v-if="work.workPicture" :src="'/images/' + work.workPicture" :alt="work.workTitle" class="work-image">
+              <ul v-if="work.workDescription" class="work-description-list">
+                <li v-for="(desc, descIndex) in work.workDescription" :key="descIndex">{{ desc }}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
 
     <div class="project-links">
-      <!-- <a :href="project.linkToVue" target="_blank" class="btn-primary">Démo</a> -->
       <a :href="project.linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a>
     </div>
   </div>
-  <!--  TODO faire une page 404 -->
+  <!-- TODO  faire une page 404-->
   <div v-else class="not-found"> 
     <h2>Projet non trouvé 😕</h2>
   </div>
@@ -100,5 +190,196 @@ const project = computed(() => projects.find(p => p.id === parseInt(route.params
   text-align: center;
   margin-top: 50px;
   font-size: 1.5rem;
+}
+
+.context-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.context-list {
+  list-style: none;
+  padding: 0;
+}
+
+.context-list li {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.objectives-section {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.objectives-content {
+  padding: 20px;
+}
+
+.objectives-content h4 {
+  margin: 10px 0;
+  color: #4a9eff;
+}
+
+.objectives-content ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.objectives-content li {
+  margin: 8px 0;
+  position: relative;
+}
+
+.objectives-content li::before {
+  content: "•";
+  color: #4a9eff;
+  position: absolute;
+  left: -15px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.work-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.work-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.expand-enter-active,
+.expand-leave-active {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 500px;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.tech-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.tech-title {
+  color: #4a9eff;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.tech-description {
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.work-description-list {
+  text-align: left;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.work-description-list li {
+  margin: 0.5rem 0;
+  position: relative;
+}
+
+.work-description-list li::before {
+  content: "•";
+  color: #4a9eff;
+  position: absolute;
+  left: -1rem;
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .work-image {
+    height: 150px;
+  }
+}
+
+.section-wrapper {
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  cursor: pointer;
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.section-content {
+  padding: 20px;
+}
+
+.objectives-list {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.objectives-list li {
+  margin: 8px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+.objectives-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
 }
 </style>

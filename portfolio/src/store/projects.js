@@ -13,9 +13,11 @@ export const projects = [
         illustration: "", // TODO
         linkToVue: "", // TODO
         linkToGIT: "",// TODO
-        objectives: [
-            "Développer une application robuste et ergonomique avec une gestion optimisée des groupes, des fiches et des statistiques, tout en garantissant une expérience utilisateur intuitive et fluide sur web et mobile.",
-        ],
+        objectives: {
+            technical: [
+                "Développer une application robuste et ergonomique avec une gestion optimisée des groupes, des fiches et des statistiques, tout en garantissant une expérience utilisateur intuitive et fluide sur web et mobile.",
+            ]
+        },
         workDone: [
             {
                 workPicture: "", // TODO (Illustration : Maquettes UI)
