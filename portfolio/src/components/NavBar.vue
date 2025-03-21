@@ -65,6 +65,14 @@ export default {
     },
     navigateToSection(sectionId) {
       this.isMenuOpen = false;
+      
+      // Si on n'est pas sur la page d'accueil, rediriger d'abord
+      if (!this.isHomeRoute) {
+        this.$router.push({ path: '/', hash: `#${sectionId}` });
+        return;
+      }
+
+      // Navigation sur la même page
       const element = document.getElementById(sectionId);
       if (element) {
         const navHeight = this.$el.offsetHeight;
@@ -74,7 +82,6 @@ export default {
           behavior: 'smooth'
         });
         
-        // Mise à jour de l'URL sans recharger la page
         history.pushState(null, '', `/#${sectionId}`);
         this.activeSection = sectionId;
       }
