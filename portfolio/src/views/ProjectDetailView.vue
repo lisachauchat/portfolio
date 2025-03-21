@@ -34,13 +34,13 @@ const toggleSection = (section) => {
     <h1 class="project-title">{{ project.title }}</h1>
 
     <!-- Context Section -->
-    <div class="section-wrapper">
-      <div class="section-header" @click="toggleSection('context')">
+    <div class="accordion accordion-primary">
+      <div class="accordion-header" @click="toggleSection('context')">
         <h3>Contexte</h3>
-        <button class="toggle-btn">{{ isContextOpen ? "▲" : "▼" }}</button>
+        <button class="accordion-toggle">{{ isContextOpen ? "▲" : "▼" }}</button>
       </div>
       <transition name="expand">
-        <div v-if="isContextOpen" class="section-content">
+        <div v-if="isContextOpen" class="accordion-content">
           <ul class="context-list">
             <li v-for="(item, index) in project.context" :key="index">{{ item }}</li>
           </ul>
@@ -49,13 +49,13 @@ const toggleSection = (section) => {
     </div>
 
     <!-- Technologies Section -->
-    <div v-if="project.technologies?.length" class="section-wrapper">
-      <div class="section-header" @click="toggleSection('tech')">
+    <div v-if="project.technologies?.length" class="accordion accordion-primary">
+      <div class="accordion-header" @click="toggleSection('tech')">
         <h3>Technologies utilisées</h3>
-        <button class="toggle-btn">{{ isTechOpen ? "▲" : "▼" }}</button>
+        <button class="accordion-toggle">{{ isTechOpen ? "▲" : "▼" }}</button>
       </div>
       <transition name="expand">
-        <div v-if="isTechOpen" class="section-content">
+        <div v-if="isTechOpen" class="accordion-content">
           <div class="tech-grid">
             <div v-for="tech in project.technologies" :key="tech.techTitle" class="tech-item">
               <h4 class="tech-title">{{ tech.techTitle }}</h4>
@@ -67,13 +67,13 @@ const toggleSection = (section) => {
     </div>
 
     <!-- Objectives Section -->
-    <div class="section-wrapper">
-      <div class="section-header" @click="toggleSection('objectives')">
+    <div class="accordion accordion-primary">
+      <div class="accordion-header" @click="toggleSection('objectives')">
         <h3>Objectifs</h3>
-        <button class="toggle-btn">{{ isObjectivesOpen ? "▲" : "▼" }}</button>
+        <button class="accordion-toggle">{{ isObjectivesOpen ? "▲" : "▼" }}</button>
       </div>
       <transition name="expand">
-        <div v-if="isObjectivesOpen" class="section-content">
+        <div v-if="isObjectivesOpen" class="accordion-content">
           <div v-if="project.objectives.technical">
             <h4>Techniques</h4>
             <ul class="objectives-list">
@@ -91,13 +91,13 @@ const toggleSection = (section) => {
     </div>
 
     <!-- Work Done Section -->
-    <div class="section-wrapper">
-      <div class="section-header" @click="toggleSection('workDone')">
+    <div class="accordion accordion-primary">
+      <div class="accordion-header" @click="toggleSection('workDone')">
         <h3>Réalisations</h3>
-        <button class="toggle-btn">{{ isWorkDoneOpen ? "▲" : "▼" }}</button>
+        <button class="accordion-toggle">{{ isWorkDoneOpen ? "▲" : "▼" }}</button>
       </div>
       <transition name="expand">
-        <div v-if="isWorkDoneOpen" class="section-content">
+        <div v-if="isWorkDoneOpen" class="accordion-content">
           <div class="work-grid">
             <div v-for="(work, index) in project.workDone" :key="index" class="work-item">
               <h4>✓ {{ work.workTitle }}</h4>
@@ -112,7 +112,7 @@ const toggleSection = (section) => {
     </div>
 
     <div class="project-links">
-      <a :href="project.linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a>
+      <a :href="project.linkToGIT" target="_blank" class="btn">👨‍💻 GIT</a>
     </div>
   </div>
   <!-- TODO  faire une page 404-->

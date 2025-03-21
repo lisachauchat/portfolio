@@ -1,24 +1,14 @@
 <script setup>
-import HomeView from './views/HomeView.vue'
+// import HomeView from './views/HomeView.vue'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
   <div class="app-container">
-    <!-- <NavBar /> -->
-    <!-- <main>
-      <HomeView />
-    </main> -->
-    <!-- <main class="main-content">
-      <router-view v-slot="{ Component }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component" />
-        </transition>
-      </router-view>
-    </main> -->
+    <NavBar />
     <main>
       <router-view />
     </main>
-
   </div>
 </template>
 

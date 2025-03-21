@@ -214,10 +214,97 @@ a:hover {
   }
 }
 
-
+/* 📦 Cards et Conteneurs */
 .card {
   background: rgba(255, 255, 255, 0.05);
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  /* Ajout d'espacement entre les cards */
+}
+
+/* 🔽 Menus dépliants */
+.accordion {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Style principal (fond bleu) */
+.accordion-primary {
+  background: rgba(74, 158, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Style secondaire (fond gris) */
+.accordion-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-primary .accordion-header {
+  background: rgba(74, 158, 255, 0.2);
+}
+
+.accordion-primary .accordion-header:hover {
+  background: rgba(74, 158, 255, 0.3);
+}
+
+.accordion-secondary .accordion-header {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.accordion-secondary .accordion-header:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.accordion-toggle {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.accordion-content {
+  padding: 1rem;
+}
+
+/* Animation du menu dépliant */
+.expand-enter-active,
+.expand-leave-active {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.expand-enter-from,
+.expand-leave-to {
+  max-height: 0;
+}
+
+.expand-enter-to,
+.expand-leave-from {
+  max-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .accordion-header {
+    padding: 0.8rem;
+  }
+
+  .accordion-content {
+    padding: 0.8rem;
+  }
 }

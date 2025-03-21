@@ -2,6 +2,7 @@
     <div class="home">
       <section v-for="(section, index) in sections" 
                :key="index" 
+               :id="section.id"
                :class="['section', section.id]">
         <div class="section-title">{{ section.title }}</div>
         <component :is="section.component" />
@@ -14,6 +15,7 @@
   import EducationSection from '../components/sections/EducationSection.vue'
   import SkillsSection from '../components/sections/SkillsSection.vue'
   import ProjectsSection from '../components/sections/ProjectsSection.vue'
+  import ExperienceSection from '../components/sections/ExperienceSection.vue'
   
   export default {
     name: 'HomeView',
@@ -21,7 +23,8 @@
       AboutSection,
       EducationSection,
       SkillsSection,
-      ProjectsSection
+      ProjectsSection,
+      ExperienceSection
     },
     data() {
       return {
@@ -29,6 +32,7 @@
           { id: 'about', title: '👤 À propos de moi', component: 'AboutSection' },
           { id: 'education', title: '🎓 Formations', component: 'EducationSection' },
           { id: 'skills', title: '📚 Compétences', component: 'SkillsSection' },
+          { id: 'experience', title: '💼 Expériences', component: 'ExperienceSection' },
           { id: 'projects', title: '🌟 Projets', component: 'ProjectsSection' }
         ]
       }
