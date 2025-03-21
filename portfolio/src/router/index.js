@@ -5,6 +5,7 @@ const routes = [
         path: '/',
         name: 'Home',
         component: () => import('@/views/HomeView.vue'),
+        alias: ['/:section']  // Permet de capturer /about, /skills, etc.
     },
     {
         path: '/project/:id',
@@ -29,7 +30,18 @@ const router = createRouter({
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (to.hash) {
-            return { el: to.hash, behavior: 'smooth' }
+            return {
+                el: to.hash,
+                behavior: 'smooth',
+                top: 70 // Hauteur de la navbar
+            }
+        }
+        if (to.params.section) {
+            return {
+                el: `#${to.params.section}`,
+                behavior: 'smooth',
+                top: 70
+            }
         }
         return { top: 0 }
     }

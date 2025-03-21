@@ -19,6 +19,12 @@
   
   export default {
     name: 'HomeView',
+    props: {
+      initialSection: {
+        type: String,
+        default: null
+      }
+    },
     components: {
       AboutSection,
       EducationSection,
@@ -35,6 +41,34 @@
           { id: 'experience', title: '💼 Expériences', component: 'ExperienceSection' },
           { id: 'projects', title: '🌟 Projets', component: 'ProjectsSection' }
         ]
+      }
+    },
+    mounted() {
+      if (this.initialSection) {
+        const element = document.getElementById(this.initialSection)
+        if (element) {
+          const navHeight = 70
+          const elementPosition = element.offsetTop - navHeight
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          })
+        }
+      }
+      // Gérer le scroll initial si un hash est présent dans l'URL
+      if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const element = document.getElementById(targetId);
+        if (element) {
+          setTimeout(() => {
+            const navHeight = 70;
+            const elementPosition = element.offsetTop - navHeight;
+            window.scrollTo({
+              top: elementPosition,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
       }
     }
   }

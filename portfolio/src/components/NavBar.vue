@@ -15,7 +15,7 @@
         <a v-for="section in sections" 
            :key="section.id" 
            :href="`#${section.id}`"
-           @click="handleNavClick($event, section.id)"
+           @click.prevent="navigateToSection(section.id)"
            :class="{ 'active': activeSection === section.id }">
           {{ section.icon }} {{ section.title }}
         </a>
@@ -47,6 +47,11 @@ export default {
       ]
     }
   },
+  computed: {
+    isHomeRoute() {
+      return this.$route.path === '/'
+    }
+  },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
@@ -58,8 +63,7 @@ export default {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     },
-    handleNavClick(event, sectionId) {
-      event.preventDefault();
+    navigateToSection(sectionId) {
       this.isMenuOpen = false;
       const element = document.getElementById(sectionId);
       if (element) {
@@ -69,7 +73,16 @@ export default {
           top: elementPosition,
           behavior: 'smooth'
         });
+        
+        // Mise à jour de l'URL sans recharger la page
+        history.pushState(null, '', `/#${sectionId}`);
+        this.activeSection = sectionId;
       }
+    },
+    handleNavClick(event, sectionId) {
+      event.preventDefault();
+      this.isMenuOpen = false;
+      this.$router.push('/' + sectionId)
     },
     updateActiveSection() {
       const sections = this.sections.map(s => document.getElementById(s.id));
@@ -85,6 +98,14 @@ export default {
     }
   },
   mounted() {
+    // Initialiser la section active basée sur le hash de l'URL
+    const hash = window.location.hash.slice(1);
+    if (hash && this.sections.some(s => s.id === hash)) {
+      this.activeSection = hash;
+      this.$nextTick(() => {
+        this.navigateToSection(hash);
+      });
+    }
     window.addEventListener('scroll', this.handleScroll);
   },
   beforeDestroy() {
