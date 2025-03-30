@@ -2,7 +2,7 @@
   <nav :class="['navbar', { 'scrolled': hasScrolled }]">
     <div class="navbar-content">
       <div class="navbar-brand">
-        <a href="#" @click="scrollToTop">LC</a>
+        <router-link to="/" @click="scrollToTop" class="logo">LC</router-link>
       </div>
       
       <button class="menu-toggle" @click="toggleMenu" :class="{ 'active': isMenuOpen }">
