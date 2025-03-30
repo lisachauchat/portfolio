@@ -25,9 +25,9 @@ import { projects } from '@/store/projects.js';
   text-align: center;
 }
 .section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 30px;
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
 }
 .projects-grid {
   display: grid;

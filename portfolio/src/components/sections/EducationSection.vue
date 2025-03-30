@@ -4,9 +4,9 @@
       <div v-for="item in education" :key="item.id" class="card">
         <h3 class="education-title">{{ item.title }}</h3>
         <h4 class="education-institution">{{ item.institution }}</h4>
-        <p class="education-location">{{ item.location }}</p>
-        <p class="education-status">{{ item.status }}</p>
-        <p class="education-date">{{ item.date }}</p>
+        <p class="education-location">🧭 {{ item.location }}</p>
+        <p class="education-status">🎓 {{ item.status }}</p>
+        <p class="education-date">📆 {{ item.date }}</p>
         <p class="education-description">{{ item.description }}</p>
 
         <!-- Spécialités -->
@@ -106,18 +106,24 @@ export default {
 }
 
 .education-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #4a9eff;
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
 }
 
-.education-institution,
+.education-institution {
+  font-size: var(--text-large);
+  color: var(--color-light);
+  margin-bottom: var(--spacing-xs);
+}
+
 .education-location,
 .education-status,
 .education-date,
 .education-description {
-  font-size: 1rem;
-  margin: 0.3rem 0;
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  margin-bottom: var(--spacing-xs);
 }
 
 /* Spécialités */
@@ -148,6 +154,11 @@ export default {
   color: var(--color-primary);
 }
 
+.specialty-header h5 {
+  font-size: var(--text-medium);
+  color: var(--color-light);
+}
+
 /* Bouton Toggle */
 .toggle-btn {
   background: none;
@@ -170,6 +181,16 @@ export default {
   border-radius: 6px;
   margin-top: 0.5rem;
   transition: all 0.3s ease-in-out;
+
+  h6 {
+    font-size: var(--text-base);
+    color: var(--color-primary);
+  }
+  
+  li {
+    font-size: var(--text-base);
+    color: var(--color-light);
+  }
 }
 
 /* Fullname en grand */

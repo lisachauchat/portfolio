@@ -17,7 +17,7 @@
         <div class="accordion-header" @click="toggleExperience(company.id, index)">
           <h3>{{ exp.position }}</h3>
           <button class="accordion-toggle">
-            {{ isExperienceOpen(company.id, index) ? '▼' : '▲' }}
+            {{ isExperienceOpen(company.id, index) ? '▲' : '▼' }}
           </button>
         </div>
         
@@ -25,8 +25,8 @@
           <div v-if="isExperienceOpen(company.id, index)" class="accordion-content">
             <div class="experience-period">
               <span class="experience-type">{{ exp.type }}</span>
-              <span class="experience-year">{{ exp.year }}</span>
-              <span class="experience-duration">({{ exp.duration }})</span>
+              <span class="experience-year">📆 {{ exp.year }}</span>
+              <span class="experience-duration">{{ exp.duration }}</span>
             </div>
             <ul class="tasks-list">
               <li v-for="(task, taskIndex) in exp.tasks" 
@@ -87,9 +87,9 @@ export default {
 }
 
 .company-name {
-  font-size: 1.8rem;
+  font-size: var(--text-xl);
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
   text-align: center;
 }
 
@@ -103,8 +103,8 @@ export default {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1rem;
-    color: #cccccc;
+    font-size: var(--text-base);
+    color: var(--color-muted);
   }
 }
 
@@ -125,7 +125,8 @@ export default {
   
   h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: var(--text-medium);
+    color: var(--color-light);
   }
 
   &:hover {
@@ -146,23 +147,42 @@ export default {
 }
 
 .experience-period {
+  font-size: var(--text-base);
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
-  color: var(--color-primary);
-  
-  .experience-type {
-    font-weight: bold;
+  color: var(--color-light);
+  font-weight: bold;
+
+  .experience-type{
+    font-size: var(--text-medium);
+  }
+
+  .experience-year,
+  .experience-duration {
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    background: rgba(74, 158, 255, 0.1);
   }
 }
-
+@media (max-width: 768px) {
+  .experience-period {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .tasks-list {
   list-style-type: none;
   padding-left: 1.5rem;
+  margin: 0.5rem 0;
   
   li {
     position: relative;
     margin-bottom: 0.5rem;
+    font-size: var(--text-base);
+    color: var(--color-light);
     
     &::before {
       content: "•";
@@ -184,5 +204,13 @@ export default {
 .expand-leave-to {
   max-height: 0;
   opacity: 0;
+}
+
+.accordion-content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin: 1rem;
+  transition: all 0.3s ease-in-out;
 }
 </style>

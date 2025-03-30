@@ -4,8 +4,8 @@ export const education = [
         title: "BUT Informatique",
         institution: "IUT de Clermont-Ferrand",
         location: "Aubière (63)",
-        status: "🎓 EN COURS",
-        date: "📆 2024 - 2026",
+        status: "EN COURS",
+        date: "2024 - 2026",
         description: "Développement d’application, base de données et réseaux"
     },
     {
@@ -13,8 +13,8 @@ export const education = [
         title: "Baccalauréat général",
         institution: "Lycée Polyvalent Paul Constans",
         location: "Montluçon (03)",
-        status: "🎓 Mention Bien",
-        date: "📆 2020-2023",
+        status: "Mention Bien",
+        date: "2020-2023",
         specialties: [
             {
                 name: "💻 NSI",

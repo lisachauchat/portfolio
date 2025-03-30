@@ -122,6 +122,11 @@
     font-weight: bold;
     }
 
+    .category-header h3 {
+      font-size: var(--text-xl);
+      color: var(--color-primary);
+    }
+
     .category-content {
     padding: 1.2rem;
     }
@@ -149,6 +154,16 @@
     cursor: pointer;
     font-size: 1.2rem;
     border-radius: 6px;
+    }
+
+    .subcategory-header h4 {
+      font-size: var(--text-medium);
+      color: var(--color-light);
+    }
+
+    .subcategory-description {
+      font-size: var(--text-base);
+      color: var(--color-muted);
     }
 
     .skills-container {
@@ -184,8 +199,8 @@
     }
 
     .skill-title {
-    font-size: 1rem;
-    font-weight: bold;
+      font-size: var(--text-base);
+      color: var(--color-light);
     }
 
     /* Barre de progression*/
@@ -214,10 +229,8 @@
 
     /* Définition de la compétence */
     .skill-definition {
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    margin-top: 0.5rem;
-    font-style: italic;
+      font-size: var(--text-small);
+      color: var(--color-muted);
     }
 
     /* Animation d'ouverture */
@@ -296,4 +309,3 @@
     }
     }
 </style>
-  
