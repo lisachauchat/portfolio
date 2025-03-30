@@ -26,11 +26,26 @@ const toggleSection = (section) => {
     case 'workDone': isWorkDoneOpen.value = !isWorkDoneOpen.value; break;
   }
 };
+
+// Ajout de la fonction openImage pour agrandir les images si nécessaire
+const openImage = (imageSrc) => {
+  // Ouvre l'image en grand dans un nouvel onglet
+  window.open(imageSrc, '_blank');
+};
+
+// Ajout de l'importation des images
+const getImageUrl = (path) => {
+  return new URL(path, import.meta.url).href;
+};
 </script>
 
 <template>
   <div v-if="project" class="project-detail">
-    <img v-if="project.illustration" :src="'/images/' + project.illustration" :alt="project.title" class="project-image">
+    <!-- Modification de l'affichage de l'image d'illustration -->
+    <img v-if="project.illustration" 
+         :src="getImageUrl(project.illustration)" 
+         :alt="project.title" 
+         class="project-image">
     <h1 class="project-title">{{ project.title }}</h1>
 
     <!-- Context Section -->
@@ -101,7 +116,11 @@ const toggleSection = (section) => {
           <div class="work-grid">
             <div v-for="(work, index) in project.workDone" :key="index" class="work-item">
               <h4>✓ {{ work.workTitle }}</h4>
-              <img v-if="work.workPicture" :src="'/images/' + work.workPicture" :alt="work.workTitle" class="work-image">
+              <img v-if="work.workPicture" 
+                   :src="getImageUrl(work.workPicture)" 
+                   :alt="work.workTitle" 
+                   class="work-image"
+                   @click="openImage(getImageUrl(work.workPicture))">
               <ul v-if="work.workDescription" class="work-description-list">
                 <li v-for="(desc, descIndex) in work.workDescription" :key="descIndex">{{ desc }}</li>
               </ul>
@@ -134,9 +153,11 @@ const toggleSection = (section) => {
 }
 .project-image {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  max-height: 400px;
+  object-fit: contain; /* Changed from cover to contain */
   border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1); /* Fond subtil pour les images transparentes */
+  padding: 10px;
 }
 .project-title {
   font-size: 2rem;
@@ -267,10 +288,19 @@ const toggleSection = (section) => {
 
 .work-image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  max-height: 300px;
+  height: auto; /* Allow natural height */
+  object-fit: contain; /* Changed from cover to contain */
   border-radius: 6px;
-  margin-top: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 8px;
+}
+
+.work-image:hover {
+  transform: scale(1.05);
 }
 
 .expand-enter-active,
@@ -342,7 +372,21 @@ const toggleSection = (section) => {
   }
   
   .work-image {
-    height: 150px;
+    max-height: 200px;
+  }
+
+  .project-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-image {
+    max-height: 150px;
+  }
+
+  .project-image {
+    max-height: 200px;
   }
 }
 

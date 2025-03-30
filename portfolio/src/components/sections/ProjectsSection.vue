@@ -4,16 +4,17 @@ import { projects } from '@/store/projects.js';
 </script>
 
 <template>
-    <section class="projects-section" >
-        <div class="projects-grid" v-for="(project) in projects"
-            :key="project.id"
-            :id="project.id"
-            :title="project.title"
-            :image="project.image"
-            :linkToVue="project.linkToVue"
-            :linkToGIT="project.linkToGIT" >
-          
-              <ProjectCard v-bind="project"/>
+    <section class="projects-section">
+        <div class="projects-grid">
+            <div v-for="project in projects" :key="project.id">
+                <ProjectCard 
+                    :id="project.id"
+                    :title="project.title"
+                    :image="project.illustration"
+                    :linkToVue="project.linkToVue"
+                    :linkToGIT="project.linkToGIT"
+                />
+            </div>
         </div>
     </section>
 </template>

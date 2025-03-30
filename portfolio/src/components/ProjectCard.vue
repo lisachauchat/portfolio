@@ -6,12 +6,15 @@ defineProps({
   linkToVue: String,
   linkToGIT: String
 });
+const getImageUrl = (path) => {
+  return new URL(path, import.meta.url).href;
+};
 </script>
 
 <template>
   <div class="card">
     <h3 class="card-title">{{ title }}</h3>
-    <img :src="image" alt="Illustration" class="card-image" />
+    <img :src="getImageUrl(image)" alt="Illustration" class="card-image" />
     <div class="card-links">
       <router-link :to="'/project/' + id" class="btn-primary">En savoir +</router-link>
       <a :href="linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a>
@@ -26,9 +29,10 @@ defineProps({
 .card-image {
   width: 100%;
   height: 180px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
 }
+
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;

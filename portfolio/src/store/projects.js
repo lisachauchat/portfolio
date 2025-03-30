@@ -1,6 +1,7 @@
 export const projects = [
     // projets SAE du BUT
     // TODO ajouter les 2 SAE de première année
+
     {
         id: 1,
         title: "SAE 2ème année Muscu Maths",
@@ -29,7 +30,7 @@ export const projects = [
             },
             {
                 workPicture: "", // TODO (Illustration : Diagramme des cas d’utilisation)
-                workTitle: "Développement des fonctionnalités ",
+                workTitle: "Développement des fonctionnalités",
                 workDescription: [
                     "Implémentation du système de connexion et d’inscription sécurisé.",
                     "Gestion des fiches et des groupes",
@@ -59,9 +60,97 @@ export const projects = [
             "Acquisition de compétences techniques en développement web, gestion de bases de données et analyse de données (pédagogiques)."
         ]
     },
-    { // projet personnel
+    {
         id: 2,
-        title: "Printer Manager",
+        title: "SAE2.01 1ère année Développement d'une application / DouShouQi",
+        context: [
+            "Doushou Qi est un jeu tactique et de stratégie abstrait pour deux joueurs dans lequel vous devez soit amener un de vos animaux dans le camp adverse soit éliminer tous les animaux de l'adversaire pour pouvoir remporter la partie.",
+            "L’application fonctionne exclusivement sous Android",
+            "Ce projet a été réalisé en équipe de 3 principalement à l'IUT sous la supervision des professeurs M.Coupas, M.Chevaldonne et M. Chargueraud."
+        ],
+        illustration: "/src/assets/images/DOUSHOUQI_illustration.png", // Changement du chemin
+        linkToVue: "", // TODO
+        linkToGIT: "",// TODO
+        objectives: {
+            technical: [
+                "Réaliser une application fonctionnelle en C# qui contient un jeu de plateau nommé DouShouQi et comprenant les rubriques : règles, crédits, paramètres."
+            ]
+        },
+        technologies: [
+            {
+                techTitle: "C#",
+                techDescription: "Langage principal utilisé pour le développement de l'application.",
+            },
+            {
+                techTitle: ".NET MAUI",
+                techDescription: "Framework utilisé pour le développement multiplateforme.",
+            },
+            {
+                techTitle: "XAML",
+                techDescription: "Langage de définition d'interface utilisateur utilisé avec .NET MAUI.",
+            }
+        ],
+        workDone: [
+            {
+                workPicture: "/src/assets/images/DOUSHOUQI_home.png",
+                workTitle: "Page d'accueil et menu",
+                workDescription: [
+                    "Conception de l'interface utilisateur et des menus.",
+                    "Développement de la navigation et des transitions entre les pages.",
+                ],
+            },
+            {
+                workPicture: "/src/assets/images/DOUSHOUQI_game_start.png",
+                workTitle: "Plateau de jeu - début de partie",
+                workDescription: [
+                    "Création du plateau de jeu interactif avec les pièces.",
+                    "Implémentation des règles du jeu et de la logique des déplacements.",
+                ],
+            },
+            {
+                workPicture: "/src/assets/images/DOUSHOUQI_game_in_progress.png",
+                workTitle: "Plateau de jeu - partie en cours",
+                workDescription: [
+                    "Gestion des interactions en temps réel entre les pièces et le plateau.",
+                    "Mise en place des conditions de victoire et des états de jeu.",
+                ],
+            },
+            {
+                workPicture: "/src/assets/images/DOUSHOUQI_storyBoard.png",
+                workTitle: "Storyboard",
+                workDescription: [
+                    "Création des scénarios de navigation et des interactions utilisateur.",
+                    "Illustre le flux utilisateur depuis le menu principal jusqu'à la fin d'une partie, avec la sélection des joueurs, l'affichage du plateau et la gestion des tours.",
+                ],
+            },
+            // {
+            //     workPicture: "/src/assets/images/DOUSHOUQI_settings.png",
+            //     workTitle: "Paramètres et configuration",
+            //     workDescription: [
+            //         "Développement des options de personnalisation pour les utilisateurs.",
+            //         "Intégration des paramètres de jeu et des préférences utilisateur.",
+            //     ],
+            // },
+            // {
+            //     workPicture: "/src/assets/images/DOUSHOUQI_rules.png",
+            //     workTitle: "Documentation et règles",
+            //     workDescription: [
+            //         "Rédaction et intégration des règles du jeu dans l'application.",
+            //         "Ajout d'une section interactive pour expliquer les mécaniques du jeu.",
+            //     ],
+            // }
+        ],
+        result: [
+            "Application fonctionnelle avec un gameplay fluide et une interface intuitive.",
+            "Développement de compétences en C#, .NET MAUI et gestion de projet en équipe."
+        ]
+        // https://opencast.dsi.uca.fr/paella/ui/watch.html?id=f0c0b809-d9dc-4f99-8022-67e86efe2463
+        // lien video
+    },
+
+    { // projet personnel
+        id: 3,
+        title: "Projet personnel Printer Manager",
         context: [
             "Printer Manager est une application qui simplifie la gestion des impressions 3D en centralisant le suivi des commandes et des ressources pour une administration fluide et efficace.",
             "Elle permet aux clients de commander des produits et aux administrateurs de gérer les produits, les commandes, les clients ainsi que les ressources nécessaires au bon fonctionnement de l’imprimante 3D.", // TODO voir si je garde
@@ -99,15 +188,15 @@ export const projects = [
         ],
         workDone: [
             {
-                workPicture: "",
+                workPicture: "",  // TODO
                 workTitle: "Page de connexion/ création de compte",
             },
             {
-                workPicture: "",
+                workPicture: "",  // TODO
                 workTitle: "Page gestion admin",
             },
             {
-                workPicture: "",
+                workPicture: "",  // TODO
                 workTitle: "Page clients",
             },
         ]

@@ -8,7 +8,6 @@
         <h2>{{ about.name }}</h2>
         <h3>{{ about.title }}</h3>
         <div class="description card">
-           <!-- utilise deep pour forcer le style sur les balises <strong> -->
           <p v-for="(paragraph, index) in about.description" 
           :key="index" 
           class="fade-in"
@@ -84,5 +83,20 @@ h3 {
 :deep(strong) {
   font-weight: 700;
   color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .image img {
+    width: 200px;
+  }
 }
 </style>
