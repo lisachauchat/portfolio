@@ -19,7 +19,7 @@
            :class="{ 'active': activeSection === section.id }">
           {{ section.icon }} {{ section.title }}
         </a>
-        <a href="/chauchatlisaCV.pdf" 
+        <a href="/portfolio/files/chauchatlisaCV.pdf" 
            target="_blank" 
            rel="noopener noreferrer" 
            class="cv-button">
