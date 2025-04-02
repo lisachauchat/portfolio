@@ -1,7 +1,4 @@
 export const projects = [
-    // projets SAE du BUT
-    // TODO ajouter les 2 SAE de première année
-
     {
         id: 1,
         title: "SAE 2ème année Muscu Maths",
@@ -12,13 +9,17 @@ export const projects = [
             "De leur côté, les enseignants disposent d’un tableau de bord leur permettant d’analyser les performances des étudiants de manière anonymisée, d’adapter les fiches d’exercices et d’optimiser leur pédagogie."
         ],
         illustration: "", // TODO
-        linkToVue: "", // TODO
-        linkToGIT: "",// TODO
         objectives: {
             technical: [
                 "Développer une application robuste et ergonomique avec une gestion optimisée des groupes, des fiches et des statistiques, tout en garantissant une expérience utilisateur intuitive et fluide sur web et mobile.",
             ]
         },
+        technologies: [ // TODO
+            {
+                techTitle: "bb",
+                techDescription: "bb",
+            },
+        ],
         workDone: [
             {
                 workPicture: "", // TODO (Illustration : Maquettes UI)
@@ -68,9 +69,7 @@ export const projects = [
             "L’application fonctionne exclusivement sous Android",
             "Ce projet a été réalisé en équipe de 3 principalement à l'IUT sous la supervision des professeurs M.Coupas, M.Chevaldonne et M. Chargueraud."
         ],
-        illustration: "/portfolio/src/assets/images/DOUSHOUQI_illustration.png", // Changement du chemin
-        linkToVue: "", // TODO
-        linkToGIT: "",// TODO
+        illustration: "/portfolio/images/DOUSHOUQI_illustration.png", // Changement du chemin
         objectives: {
             technical: [
                 "Réaliser une application fonctionnelle en C# qui contient un jeu de plateau nommé DouShouQi et comprenant les rubriques : règles, crédits, paramètres."
@@ -92,7 +91,7 @@ export const projects = [
         ],
         workDone: [
             {
-                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_home.png",
+                workPicture: "/portfolio/images/DOUSHOUQI_home.png",
                 workTitle: "Page d'accueil et menu",
                 workDescription: [
                     "Conception de l'interface utilisateur et des menus.",
@@ -100,7 +99,7 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_game_start.png",
+                workPicture: "/portfolio/images/DOUSHOUQI_game_start.png",
                 workTitle: "Plateau de jeu - début de partie",
                 workDescription: [
                     "Création du plateau de jeu interactif avec les pièces.",
@@ -108,7 +107,7 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_game_in_progress.png",
+                workPicture: "/portfolio/images/DOUSHOUQI_game_in_progress.png",
                 workTitle: "Plateau de jeu - partie en cours",
                 workDescription: [
                     "Gestion des interactions en temps réel entre les pièces et le plateau.",
@@ -116,29 +115,13 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_storyBoard.png",
+                workPicture: "/portfolio/images/DOUSHOUQI_storyBoard.png",
                 workTitle: "Storyboard",
                 workDescription: [
                     "Création des scénarios de navigation et des interactions utilisateur.",
                     "Illustre le flux utilisateur depuis le menu principal jusqu'à la fin d'une partie, avec la sélection des joueurs, l'affichage du plateau et la gestion des tours.",
                 ],
             },
-            // {
-            //     workPicture: "/src/assets/images/DOUSHOUQI_settings.png",
-            //     workTitle: "Paramètres et configuration",
-            //     workDescription: [
-            //         "Développement des options de personnalisation pour les utilisateurs.",
-            //         "Intégration des paramètres de jeu et des préférences utilisateur.",
-            //     ],
-            // },
-            // {
-            //     workPicture: "/src/assets/images/DOUSHOUQI_rules.png",
-            //     workTitle: "Documentation et règles",
-            //     workDescription: [
-            //         "Rédaction et intégration des règles du jeu dans l'application.",
-            //         "Ajout d'une section interactive pour expliquer les mécaniques du jeu.",
-            //     ],
-            // }
         ],
         result: [
             "Application fonctionnelle avec un gameplay fluide et une interface intuitive.",
@@ -155,9 +138,7 @@ export const projects = [
             "Printer Manager est une application qui simplifie la gestion des impressions 3D en centralisant le suivi des commandes et des ressources pour une administration fluide et efficace.",
             "Elle permet aux clients de commander des produits et aux administrateurs de gérer les produits, les commandes, les clients ainsi que les ressources nécessaires au bon fonctionnement de l’imprimante 3D.", // TODO voir si je garde
         ],
-        illustration: "", // TODO
-        linkToVue: "", // TODO
-        linkToGIT: "",// TODO
+        illustration: "/portfolio/images/PM_illustration.png",
         objectives: {
             technical: [
                 "Réaliser une application multiplateforme fonctionnelle, intuitive avec des fonctionnalités de gestion de ressources.",
@@ -188,16 +169,16 @@ export const projects = [
         ],
         workDone: [
             {
-                workPicture: "",  // TODO
-                workTitle: "Page de connexion/ création de compte",
+                workPicture: "/portfolio/images/PM_supabase.png",
+                workTitle: "Gestion de la base de donnée avec Supabase",
             },
             {
-                workPicture: "",  // TODO
-                workTitle: "Page gestion admin",
+                workPicture: "/portfolio/images/PM_page_filament.png",
+                workTitle: "Page administrateur : gestion des filaments administrateur",
             },
             {
-                workPicture: "",  // TODO
-                workTitle: "Page clients",
+                workPicture: "/portfolio/images/PM_gestion.png",
+                workTitle: "Gestion de projet : Page Notion organisation",
             },
         ]
     },
