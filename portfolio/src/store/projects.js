@@ -68,7 +68,7 @@ export const projects = [
             "L’application fonctionne exclusivement sous Android",
             "Ce projet a été réalisé en équipe de 3 principalement à l'IUT sous la supervision des professeurs M.Coupas, M.Chevaldonne et M. Chargueraud."
         ],
-        illustration: "/src/assets/images/DOUSHOUQI_illustration.png", // Changement du chemin
+        illustration: "/portfolio/src/assets/images/DOUSHOUQI_illustration.png", // Changement du chemin
         linkToVue: "", // TODO
         linkToGIT: "",// TODO
         objectives: {
@@ -92,7 +92,7 @@ export const projects = [
         ],
         workDone: [
             {
-                workPicture: "/src/assets/images/DOUSHOUQI_home.png",
+                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_home.png",
                 workTitle: "Page d'accueil et menu",
                 workDescription: [
                     "Conception de l'interface utilisateur et des menus.",
@@ -100,7 +100,7 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/src/assets/images/DOUSHOUQI_game_start.png",
+                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_game_start.png",
                 workTitle: "Plateau de jeu - début de partie",
                 workDescription: [
                     "Création du plateau de jeu interactif avec les pièces.",
@@ -108,7 +108,7 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/src/assets/images/DOUSHOUQI_game_in_progress.png",
+                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_game_in_progress.png",
                 workTitle: "Plateau de jeu - partie en cours",
                 workDescription: [
                     "Gestion des interactions en temps réel entre les pièces et le plateau.",
@@ -116,7 +116,7 @@ export const projects = [
                 ],
             },
             {
-                workPicture: "/src/assets/images/DOUSHOUQI_storyBoard.png",
+                workPicture: "/portfolio/src/assets/images/DOUSHOUQI_storyBoard.png",
                 workTitle: "Storyboard",
                 workDescription: [
                     "Création des scénarios de navigation et des interactions utilisateur.",

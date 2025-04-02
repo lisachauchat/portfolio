@@ -4,12 +4,19 @@ defineProps({
   title: String,
   image: String,
   linkToVue: String,
-  linkToGIT: String
+  // linkToGIT: String
 });
 const getImageUrl = (path) => {
   return new URL(path, import.meta.url).href;
 };
 </script>
+
+<!-- <template>
+  <router-link :to="'/project/' + id" class="card">
+    <h3 class="card-title">{{ title }}</h3>
+    <img :src="getImageUrl(image)" alt="Illustration" class="card-image" />
+  </router-link>
+</template> -->
 
 <template>
   <div class="card">
@@ -17,7 +24,7 @@ const getImageUrl = (path) => {
     <img :src="getImageUrl(image)" alt="Illustration" class="card-image" />
     <div class="card-links">
       <router-link :to="'/project/' + id" class="btn-primary">En savoir +</router-link>
-      <a :href="linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a>
+      <!-- <a :href="linkToGIT" target="_blank" class="btn-secondary">👨‍💻 GIT</a> -->
     </div>
   </div>
 </template>
@@ -42,6 +49,7 @@ const getImageUrl = (path) => {
 }
 .card-links {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-top: 14px;
 }

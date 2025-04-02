@@ -12,7 +12,6 @@ import { projects } from '@/store/projects.js';
                     :title="project.title"
                     :image="project.illustration"
                     :linkToVue="project.linkToVue"
-                    :linkToGIT="project.linkToGIT"
                 />
             </div>
         </div>
